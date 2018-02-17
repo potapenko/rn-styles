@@ -55,36 +55,6 @@
   (println)
   (vec style))
 
-; colors
-
-(def red            "#DB2828")
-(def orange         "#F2711C")
-(def yellow         "#FBBD08")
-(def olive          "#B5CC18")
-(def green          "#21BA45")
-(def teal           "#00B5AD")
-(def blue           "#2185D0")
-(def violet         "#6435C9")
-(def purple         "#A333C8")
-(def pink           "#E03997")
-(def brown          "#A5673F")
-(def grey           "#767676")
-(def black          "#1B1C1D")
-
-(def light-red      "#ff695e")
-(def light-orange   "#ff851b")
-(def light-yellow   "#ffe21f")
-(def light-olive    "#d9e778")
-(def light-green    "#2ecc40")
-(def light-teal     "#6dffff")
-(def light-blue     "#54c8ff")
-(def light-violet   "#a291fb")
-(def light-purple   "#dc73ff")
-(def light-pink     "#ff8edf")
-(def light-brown    "#d67c1c")
-(def light-grey     "#dcddde")
-(def light-black    "#545454")
-
 ; layout
 
 (defn display [v]
