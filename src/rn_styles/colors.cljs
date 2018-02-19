@@ -1,4 +1,4 @@
-(ns re-styles.colors)
+(ns rn-styles.colors)
 
 (def aliceblue "aliceblue") ;; #f0f8ff
 (def antiquewhite "antiquewhite") ;; #faebd7
