@@ -253,6 +253,9 @@
               {:border-right-width w
                :border-right-color c})))
 
+(defn elevation [v]
+  (new-style (keyword (str "elevation-" v)) {:elevation v}))
+
 (defn shadow
   ([] (shadow 4))
   ([h] (shadow 0 h))
@@ -265,6 +268,7 @@
                :shadow-radius  r
                :shadow-color   (str "rgba(0,0,0,0." a ")")
                :elevation      h})))
+
 
 ;; box
 
@@ -328,7 +332,10 @@
 
 ;; position
 
-(def position-absolute (new-style :position-absolute {:position "absolute"}))
+(defn position [v]
+  (new-style (keyword (str "position-" v)) {:position v}))
+
+(def position-absolute (position "absolute"))
 
 (defn top [v]
   (new-style (keyword (str "top-" v)) {:top v}))
@@ -343,6 +350,9 @@
   (new-style (keyword (str "right-" v)) {:right v}))
 
 (def box [(top 0) (left 0) (bottom 0) (right 0) position-absolute])
+
+(defn z-index [v]
+  (new-style (keyword (str "z-index-" v)) {:z-index v}))
 
 ;; transform
 
