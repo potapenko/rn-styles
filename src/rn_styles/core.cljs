@@ -444,10 +444,7 @@
      (rounded (/ w 2))
      (when (or border-color (not background)) (border (or border 1) color))]))
 
-
-
-(defn on-js-reload []
-  ;; optionally touch your app-state to force rerendering depending on
-  ;; your application
-  ;; (swap! app-state update-in [:__figwheel_counter] inc)
-)
+(def rotate-45 (transform [{:rotate :45deg}]))
+(def rotate-90 (transform [{:rotate :90deg}]))
+(def rotate-180 (transform [{:rotate :180deg}]))
+(def rotate-270 (transform [{:rotate :270deg}]))
