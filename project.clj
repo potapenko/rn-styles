@@ -1,9 +1,8 @@
-(defproject rn-styles "0.1.3-SNAPSHOT"
+(defproject rn-styles "0.1.4-SNAPSHOT"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-
 
 
   :min-lein-version "2.7.1"

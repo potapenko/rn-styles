@@ -448,3 +448,10 @@
 (def rotate-90 (transform [{:rotate :90deg}]))
 (def rotate-180 (transform [{:rotate :180deg}]))
 (def rotate-270 (transform [{:rotate :270deg}]))
+
+(defn merge-styles [style-name & styles]
+  (map-indexed (fn [index style]
+                 (if (map? style)
+                   (new-style (keyword (str style-name "-" index)) style)
+                   style)
+                 ) styles))
