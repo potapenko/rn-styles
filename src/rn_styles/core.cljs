@@ -154,38 +154,35 @@
 ; background color
 
 (defn gray-cl
-  "Useful function for simple generate rgba(0,0,0,0.3) color."
+  "Useful function for simple generate rgba(0,0,0,0.N) color."
   [opacity]
   (str "rgba(0,0,0,0." opacity ")"))
 
 (defn gray
-  "Useful function for generate background-color 'rgba(0,0,0,0.3)' style."
+  "Useful function for generate style background-color 'rgba(0,0,0,0.N)'."
   ([] (gray 2))
   ([opacity]
    (new-style
     (keyword (str "gray-" opacity))
     {:background-color (gray-cl opacity)})))
 
-(defn white-cl [opacity]
+(defn white-cl
+  "Useful function for simple generate rgba(255,255,255,0.N) color."
+  [opacity]
   (str "rgba(255,255,255,0." opacity ")"))
 
 (defn white
-  ""
+  "Useful function for generate style background-color 'rgba(255,255,255,0.N)'."
   ([]  (white 999))
   ([opacity]
    (new-style
     (keyword  (str "white-" opacity))
     {:background-color (white-cl opacity)})))
 
-(defn background
-  "Useful function for generate background-color 'rgba(255,255,255,0.3)' style."
-  [v]
-  (new-style (keyword (str "background-color-" v)) {:background-color v}))
-
 ;; text styles
 
 (defn color
-  ""
+  "The color property specifies the color of text."
   [v]
   (new-style (keyword (str "color-" v)) {:color v}))
 
@@ -200,7 +197,9 @@
   (new-style (keyword (str "font-family" v)) {:font-family v}))
 
 (defn font-weight
-  "Specifies font weight. The values 'normal' and 'bold' are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen."
+  "Specifies font weight. The values 'normal' and 'bold' are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen.
+
+  enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')"
   [v]
   (new-style (keyword (str "font-weight" v)) {:font-weight v}))
 
@@ -230,12 +229,12 @@
   (new-style (keyword (str "text-decoration-color" v)) {:text-decoration-color v}))
 
 (defn text-decoration-line
-  ""
+  "enum('none', 'underline', 'line-through', 'underline line-through')"
   [v]
   (new-style (keyword (str "text-decoration-line" v)) {:text-decoration-line v}))
 
 (def underline
-  "text-decoration undeline"
+  "(common pattern) text-decoration undeline"
   (text-decoration-line "underline"))
 
 (def line-through
@@ -290,17 +289,42 @@
 
 (defn height
   "height sets the height of this component.
-  It works similarly to height in CSS, but in React Native you must use points or percentages. Ems and other units are not supported. See https://developer.mozilla.org/en-US/docs/Web/CSS/height for more details."
+  It works similarly to height in CSS, but in React Native you must use points or percentages. Ems and other units are not supported. "
   [v]
   (new-style (keyword (str "height-" v)) {:height v}))
 
+(defn min-height
+  "minHeight is the minimum height for this component, in logical pixels.
+  It works similarly to min-height in CSS, but in React Native you must use points or percentages. Ems and other units are not supported."
+  [v]
+  (new-style (keyword (str "min-height-" v)) {:min-height v}))
+
+(defn max-height
+  "maxHeight is the maximum height for this component, in logical pixels.
+  It works similarly to max-height in CSS, but in React Native you must use points or percentages. Ems and other units are not supported."
+  [v]
+  (new-style (keyword (str "max-height-" v)) {:max-height v}))
+
 (defn width
-  ""
+  "width sets the width of this component.
+  It works similarly to width in CSS, but in React Native you must use points or percentages. Ems and other units are not supported. "
   [v]
   (new-style (keyword (str "width-" v)) {:width v}))
 
+(defn min-width
+  "minWidth is the minimum width for this component, in logical pixels.
+  It works similarly to min-width in CSS, but in React Native you must use points or percentages. Ems and other units are not supported."
+  [v]
+  (new-style (keyword (str "min-width-" v)) {:min-width v}))
+
+(defn max-width
+  "maxWidth is the maximum width for this component, in logical pixels.
+  It works similarly to max-width in CSS, but in React Native you must use points or percentages. Ems and other units are not supported."
+  [v]
+  (new-style (keyword (str "max-width-" v)) {:max-width v}))
+
 (defn size
-  ""
+  "Setting size is like setting both of height and width."
   [w h]
   (new-style (keyword (str "width-" w "-height-" h)) {:width w :height h}))
 
@@ -327,7 +351,7 @@
                :border-top-left-radius     tl})))
 
 (defn border
-  ""
+  "Settings for view borders"
   ([] (border 1))
   ([w] (border w "rgba(0,0,0,0.4)"))
   ([w c] (border w c "solid"))
@@ -373,8 +397,11 @@
               {:border-right-width w
                :border-right-color c})))
 
-(defn elevation [v]
-  ""
+(defn elevation
+  "(Android) Sets the elevation of a view, using Android's underlying elevation API.
+  This adds a drop shadow to the item and affects z-order for overlapping views.
+  Only supported on Android 5.0+, has no effect on earlier versions."
+  [v]
   (new-style (keyword (str "elevation-" v)) {:elevation v}))
 
 (defn shadow
@@ -549,7 +576,7 @@
   (new-style (keyword (str "border-width-" v)) {:border-width v}))
 
 (defn border-style
-  ""
+  "enum('solid', 'dotted', 'dashed')"
   [v]
   (new-style (keyword (str "border-style-" v)) {:border-style v}))
 
