@@ -689,7 +689,7 @@
   "Creats circle view."
   ([radius] (circle radius nil 0 0))
   ([radius background ] (circle radius background 0 0))
-  ([radius background border border-color]
+  ([radius background border-radius border-color]
    (let [w (* 2 radius)]
      [align-center justify-center
       (overflow "hidden")
@@ -697,7 +697,7 @@
       (height w)
       (when background (background-color background))
       (rounded (/ w 2))
-      (when (or border-color (not background)) (border (or border 1) color))])))
+      (when (or border-color (not background)) (border (or border-radius 1) color))])))
 
 (def rotate-45
   ""
