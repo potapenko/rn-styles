@@ -1,5 +1,6 @@
 (ns rn-styles.core
-  (:require))
+  (:require [reagent.core :as r :refer [atom]]
+            [reagent.impl.component :as ru]))
 
 (def react (js/require "react-native"))
 
