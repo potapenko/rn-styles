@@ -687,8 +687,8 @@
 
 (defn circle
   "Creats circle view."
-  ([radius] (circle nil radius 0 0))
-  ([radius background ] (circle background radius 0 0))
+  ([radius] (circle radius nil 0 0))
+  ([radius background ] (circle radius background 0 0))
   ([radius background border border-color]
    (let [w (* 2 radius)]
      [align-center justify-center
