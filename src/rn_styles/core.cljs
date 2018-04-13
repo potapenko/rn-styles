@@ -697,7 +697,8 @@
       (height w)
       (when background (background-color background))
       (rounded (/ w 2))
-      (when (or border-color (not background)) (border (or border-radius 1) color))])))
+      (cond (and border-color border-radius) (border border-radius color)
+            border-radius (border border-radius))])))
 
 (def rotate-45
   ""
