@@ -1,4 +1,4 @@
-(defproject rn-styles "0.1.4-SNAPSHOT"
+(defproject rn-styles "0.1.5-SNAPSHOT"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
