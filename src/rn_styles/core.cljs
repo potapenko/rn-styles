@@ -685,16 +685,18 @@
 ;; utils
 
 (defn circle
-  ""
-  [{:keys [border border-color background radius]}]
-  (let [w (* 2 radius)]
-    [align-center justify-center
-     (overflow "hidden")
-     (width w)
-     (height w)
-     (when background (background-color background))
-     (rounded (/ w 2))
-     (when (or border-color (not background)) (border (or border 1) color))]))
+  "Creats circle view."
+  ([radius] (circle nil radius 0 0))
+  ([radius background ] (circle background radius 0 0))
+  ([radius background border border-color]
+   (let [w (* 2 radius)]
+     [align-center justify-center
+      (overflow "hidden")
+      (width w)
+      (height w)
+      (when background (background-color background))
+      (rounded (/ w 2))
+      (when (or border-color (not background)) (border (or border 1) color))])))
 
 (def rotate-45
   ""
