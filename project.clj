@@ -1,6 +1,6 @@
 (defproject rn-styles "0.1.5"
   :description "FIXME: write this!"
-  :url "http://example.com/FIXME"
+  :url "https://github.com/potapenko/rn-styles"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
